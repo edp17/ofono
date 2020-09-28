@@ -81,7 +81,8 @@ static void ril_call_volume_query_mute_cb(GRilIoChannel *io, int status,
 		grilio_parser_get_int32(&rilp, NULL); /* Array length */
 		grilio_parser_get_int32(&rilp, &muted);
 		DBG("{%d}", muted);
-		ofono_call_volume_set_muted(vd->v, muted);
+/*		ofono_call_volume_set_muted(vd->v, muted);*/
+		ofono_call_volume_set_muted(vd->v, muted != 0);
 	} else {
 		ofono_error("Could not retrive the ril mute state");
 	}
